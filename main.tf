@@ -15,9 +15,10 @@ data "aws_ami" "app_ami" {
 }
 
 resource "aws_instance" "blog" {
-  ami           = data.aws_ami.app_ami.id
-  instance_type = var.instance_type
-
+  ami                = data.aws_ami.app_ami.id
+  region             = "us-east-1"
+  instance_type      = var.instance_type
+  vpc_security_group = ["sg-0bb56c6c"]
   tags = {
     Name = "HelloWorld"
   }
