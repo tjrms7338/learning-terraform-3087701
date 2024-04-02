@@ -14,7 +14,7 @@ data "aws_ami" "app_ami" {
   owners = ["979382823631"] # Bitnami
 }
 
-resource "aws_instance" {
+resource "aws_instance" "blog" {
   ami                    = "ami-02cafb524b3926df9"
   instance_type          = var.instance_type
   vpc_security_group_ids = ["sg-0bb56c6c"]
